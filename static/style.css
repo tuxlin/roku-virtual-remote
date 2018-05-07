@@ -1,0 +1,191 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  background-color: #000;
+}
+
+button {
+  cursor: pointer;
+  background: none;
+  border: none;
+}
+
+#mainscreen {
+  position: relative;
+  display: block;
+  float: right;
+}
+
+#controller-wrapper {
+  height: 480px;
+  width: 160px;
+  background-image: url("remote.png");
+  position: absolute;
+}
+
+#keypad-wrapper {
+  margin-top: 111px;
+  margin-left: 26px;
+  position: absolute;
+}
+
+#upper-wrapper {
+  margin-top: 42px;
+  margin-left: 25px;
+  position: absolute;
+}
+
+#lower-wrapper {
+  margin-top: 213px;
+  margin-left: 26px;
+  position: absolute;
+}
+
+#volume-wrapper {
+  margin-left: 130px;
+  margin-top: 115px;
+  position: absolute;
+}
+
+#favorites-wrapper {
+  position: absolute;
+  margin-top: 278px;
+  margin-left: 47px;
+}
+
+.app-button {
+  margin-top: 13px;
+  height: 18px;
+  width: 48px;
+  display: block;
+  position: relative;
+  overflow: hidden;
+  border-radius: 7px;
+}
+
+.app-button img {
+  position: absolute;
+  max-width: 100%;
+  top: -100%; left: 0; right: 0; bottom: -100%;
+  margin: auto;
+}
+
+.keypad-button {
+  cursor: pointer;
+  border: none;
+  position: absolute;
+  border-radius: 9px;
+}
+
+#poweroff {
+  margin-left: 34px;
+  height: 24px;
+  width: 24px;
+  border-radius: 23px;
+}
+
+#back {
+  margin-top: 33px;
+  height: 24px;
+  width: 42px;
+  xbackground: rgba(255,0,0,0.5);
+}
+
+#home {
+  margin-top: 33px;
+  margin-left: 49px;
+  height: 24px;
+  width: 42px;
+  xbackground: rgba(255,0,0,0.5);
+}
+
+#up {
+  margin-left: 27px;
+  height: 27px;
+  width: 36px;
+  border-radius: 9px 9px 0 0;
+}
+
+#down {
+  margin-left: 27px;
+  margin-top: 63px;
+  height: 27px;
+  width: 36px;
+  border-radius: 0 0 9px 9px;
+}
+
+#left {
+  margin-top: 27px;
+  height: 36px;
+  width: 27px;
+  border-radius: 9px 0 0 9px;
+}
+
+#right {
+  margin-left: 63px;
+  margin-top: 27px;
+  height: 36px;
+  width: 27px;
+  float: right;
+  border-radius: 0 9px 9px 0;
+}
+
+#select {
+  margin-left: 29px;
+  margin-top: 29px;
+  height: 32px;
+  width: 32px;
+  border-radius: 35px;
+}
+
+#volumeUp {
+  width: 20px;
+  height: 30px;
+}
+
+#volumeDown {
+  margin-top: 32px;
+  width: 20px;
+  height: 30px;
+}
+
+#volumeMute {
+  margin-top: 88px;
+  width: 20px;
+  height: 19px;
+}
+
+#instantReplay {
+  width: 42px;
+  height: 24px;
+}
+
+#info {
+  margin-left: 48px;
+  width: 42px;
+  height: 24px;
+}
+
+#rev {
+  margin-top: 30px;
+  width: 26px;
+  height: 24px;
+}
+
+#play {
+  margin-top: 30px;
+  margin-left: 32px;
+  width: 26px;
+  height: 24px;
+}
+
+#fwd {
+  margin-top: 30px;
+  margin-left: 64px;
+  width: 26px;
+  height: 24px;
+}
+

@@ -1,0 +1,19 @@
+<!doctype html>
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='style.css')}}">
+</head>
+
+<body>
+  <div id="mainscreen">
+    <form action="/launch" method="post">
+    {% for app in apps %}
+        <!--<div><button type="submit" name="appid" value="{{app.id}}">{{app.name}}</button></div>-->
+        <button type="submit" name="appid" value="{{app.id}}">
+          <img src="http://192.168.1.117:8060/query/icon/{{app.id}}">
+        </button>
+    {% endfor %}
+  </div>
+</body>
+
+</html>

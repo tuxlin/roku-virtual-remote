@@ -1,0 +1,69 @@
+<!doctype html>
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='style.css')}}">
+</head>
+
+
+
+<body>
+
+  <div id="controller-wrapper">
+
+    <div id="upper-wrapper">
+      <button class="keypad-button" onclick="keyPress('poweroff')" id="poweroff"</button>
+      <button class="keypad-button" onclick="keyPress('back')" id="back"</button>
+      <button class="keypad-button" onclick="keyPress('home')" id="home"</button>
+    </div>
+
+    <div id="volume-wrapper">
+      <button class="keypad-button" onclick="keyPress('volumeUp')" id="volumeUp"</button>
+      <button class="keypad-button" onclick="keyPress('volumeDown')" id="volumeDown"</button>
+      <button class="keypad-button" onclick="keyPress('volumeMute')" id="volumeMute"</button>
+    </div>
+
+    <div id="keypad-wrapper">
+      <button class="keypad-button" onclick="keyPress('up')" id="up"></button>
+      <button class="keypad-button" onclick="keyPress('left')" id="left"></button>
+      <button class="keypad-button" onclick="keyPress('select')" id="select"></button>
+      <button class="keypad-button" onclick="keyPress('right')" id="right"></button>
+      <button class="keypad-button" onclick="keyPress('down')" id="down"></button>
+    </div>
+
+    <div id="lower-wrapper">
+      <button class="keypad-button" onclick="keyPress('instantReplay')" id="instantReplay"</button>
+      <button class="keypad-button" onclick="keyPress('info')" id="info"</button>
+      <button class="keypad-button" onclick="keyPress('rev')" id="rev"</button>
+      <button class="keypad-button" onclick="keyPress('play')" id="play"</button>
+      <button class="keypad-button" onclick="keyPress('fwd')" id="fwd"</button>
+    </div>
+
+    <div id="favorites-wrapper">
+    {% for app in favorites %}
+      <button class="app-button" onclick="appLaunch({{app.id}})">
+        <img src="{{tvurl}}/query/icon/{{app.id}}"/>
+      </button>  
+    {% endfor %}
+    </div>
+
+  </div>
+
+
+<script>
+function keyPress(key) {
+  var xhr = new XMLHttpRequest();
+  xhr.open("POST", "{{tvurl}}/keypress/" + key, true);
+  xhr.send();
+}
+
+function appLaunch(key) {
+  var xhr = new XMLHttpRequest();
+  xhr.open("POST", "{{tvurl}}/launch/" + key, true);
+  xhr.send();
+}
+</script>
+
+</body>
+
+
+</html>
