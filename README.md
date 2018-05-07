@@ -60,9 +60,15 @@ Partially named apps will return all close matching named apps
 * Text entry windows, typing on your keyboard will enter alphanumeric characters(a-z, A-Z, 0-9)
 * Backspace will enter backspace on text entry windows
 * Arrow keys will move the selector around
-* Enter will select the highlighted options
-* Escape will back out of windows
-* Tab will return you to your Home screen
+
+### Keyboard shortcuts
+| input | key  |
+|-------|------|
+|select|Enter  |
+|back  |Escape |
+|home  |F1     |
+|volumeDown|-  |
+|volumeUp|+    |
 
 ## Remote buttons
 
