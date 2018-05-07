@@ -70,5 +70,5 @@ Partially named apps will return all close matching named apps
 * Volume controls are on the top right side
 * Power off is the only function of the power button
 
-![Alt text](/static/remote-highlighted-buttons.jpg?raw=true "Optional Title")
+![Alt text](/static/remote-highlighted-buttons.png?raw=true "Optional Title")
 
