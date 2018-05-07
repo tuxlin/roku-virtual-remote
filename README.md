@@ -28,9 +28,8 @@ pip install -r requirements.txt
 ```
 
 Set your Roku device's IP address in roku-remote.py
-`
-tv = "http://[YOUR TV IP HERE]:8060"
-`
+
+`tv = "http://[YOUR TV IP HERE]:8060"`
 
 Start the virtual remote
 ```
@@ -38,9 +37,8 @@ python roku-remote.py
 ```
 
 Launch your browser(Firefox 59.0.2+ for keyboard support)
-`
-http://localhost:5000
-`
+
+`http://localhost:5000`
 
 ## Configure favorites
 
