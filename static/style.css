@@ -91,7 +91,6 @@ button {
   margin-top: 33px;
   height: 24px;
   width: 42px;
-  xbackground: rgba(255,0,0,0.5);
 }
 
 #home {
@@ -99,7 +98,6 @@ button {
   margin-left: 49px;
   height: 24px;
   width: 42px;
-  xbackground: rgba(255,0,0,0.5);
 }
 
 #up {

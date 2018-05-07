@@ -5,7 +5,7 @@ import xml.etree.ElementTree as ET
 import requests
 
 app = Flask(__name__)
-tv = "http://[your tv ip address]:8060"
+tv = "http://[YOUR TV IP HERE]:8060"
 
 def get_apps():
     resp = requests.get(tv + "/query/apps")
@@ -36,16 +36,43 @@ def index():
     return render_template('index.html', tvurl=tv, apps=apps)
 
 @app.route("/launch", methods=['POST'])
-def launcher():
+def launch():
     appid = request.form['appid']
     resp = requests.post(tv + "/launch/" + appid)
     return redirect(url_for("controller"))
 
 @app.route("/controller")
 def controller():
+    upper = ['poweroff', 'back', 'home']
+    volume = ['volumeUp', 'volumeDown', 'volumeMute']
+    keypad = ['up', 'left', 'select', 'right', 'down']
+    lower = ['instantReplay', 'info', 'rev', 'play', 'fwd']
     favorites = get_favs()
-    return render_template("controller.html", tvurl=tv, favorites=favorites)
+    return render_template("controller.html",
+                           tvurl=tv,
+                           favorites=favorites,
+                           upper=upper,
+                           volume=volume,
+                           keypad=keypad,
+                           lower=lower)
 
+@app.route("/keyboardpress/<key>", methods=['POST'])
+def keyboardpress(key=None):
+    resp = requests.post(tv + "/keypress/Lit_" + key)
+    rc = resp.status_code
+    return "OK"
+
+@app.route("/keypress/<key>", methods=['POST'])
+def keypress(key):
+    resp = requests.post(tv + "/keypress/" + key)
+    rc = resp.status_code
+    return "OK"
+
+@app.route("/launcher/<appid>", methods=['POST'])
+def launcher(appid):
+    resp = requests.post(tv + "/launch/" + appid)
+    rc = resp.status_code
+    return "OK"
 
 if __name__ == "__main__":
     app.run()

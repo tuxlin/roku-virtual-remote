@@ -4,40 +4,28 @@
   <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='style.css')}}">
 </head>
 
-
-
 <body>
-
   <div id="controller-wrapper">
-
     <div id="upper-wrapper">
-      <button class="keypad-button" onclick="keyPress('poweroff')" id="poweroff"</button>
-      <button class="keypad-button" onclick="keyPress('back')" id="back"</button>
-      <button class="keypad-button" onclick="keyPress('home')" id="home"</button>
+    {% for item in upper %}
+      <button class="keypad-button" onclick="keyPress(this.id)" id="{{item}}"</button>
+    {% endfor %}
     </div>
-
     <div id="volume-wrapper">
-      <button class="keypad-button" onclick="keyPress('volumeUp')" id="volumeUp"</button>
-      <button class="keypad-button" onclick="keyPress('volumeDown')" id="volumeDown"</button>
-      <button class="keypad-button" onclick="keyPress('volumeMute')" id="volumeMute"</button>
+    {% for item in volume %}
+      <button class="keypad-button" onclick="keyPress(this.id)" id="{{item}}"</button>
+    {% endfor %}
     </div>
-
     <div id="keypad-wrapper">
-      <button class="keypad-button" onclick="keyPress('up')" id="up"></button>
-      <button class="keypad-button" onclick="keyPress('left')" id="left"></button>
-      <button class="keypad-button" onclick="keyPress('select')" id="select"></button>
-      <button class="keypad-button" onclick="keyPress('right')" id="right"></button>
-      <button class="keypad-button" onclick="keyPress('down')" id="down"></button>
+    {% for item in keypad %}
+      <button class="keypad-button" onclick="keyPress(this.id)" id="{{item}}"</button>
+    {% endfor %}
     </div>
-
     <div id="lower-wrapper">
-      <button class="keypad-button" onclick="keyPress('instantReplay')" id="instantReplay"</button>
-      <button class="keypad-button" onclick="keyPress('info')" id="info"</button>
-      <button class="keypad-button" onclick="keyPress('rev')" id="rev"</button>
-      <button class="keypad-button" onclick="keyPress('play')" id="play"</button>
-      <button class="keypad-button" onclick="keyPress('fwd')" id="fwd"</button>
+    {% for item in lower %}
+      <button class="keypad-button" onclick="keyPress(this.id)" id="{{item}}"</button>
+    {% endfor %}
     </div>
-
     <div id="favorites-wrapper">
     {% for app in favorites %}
       <button class="app-button" onclick="appLaunch({{app.id}})">
@@ -45,25 +33,55 @@
       </button>  
     {% endfor %}
     </div>
-
   </div>
 
-
 <script>
+"use strict";
+document.addEventListener('keypress', (event) => {
+  if (event.key == " ") {
+    keyBoardPress("%20");
+    return;
+  } else if (event.key.startsWith("Arrow")) {
+    keyPress(event.key.substr(5));
+    return;
+  } else if (event.key == "Backspace"){
+    keyPress("Backspace");
+    event.preventDefault();
+    return;
+  } else if (event.key == "Escape"){
+    keyPress("back");
+    return;
+  } else if (event.key == "Tab"){
+    keyPress("home");
+    return;
+  } else if (event.key == "Enter"){
+    keyPress("select");
+    return;
+  } else {
+    keyBoardPress(event.key);
+  };
+})
+
+function keyBoardPress(key) {
+  var xhr = new XMLHttpRequest();
+  console.log(key);
+  xhr.open("POST", "/keyboardpress/" + key, true);
+  xhr.send();
+}
+
 function keyPress(key) {
   var xhr = new XMLHttpRequest();
-  xhr.open("POST", "{{tvurl}}/keypress/" + key, true);
+  xhr.open("POST", "/keypress/" + key, true);
   xhr.send();
 }
 
-function appLaunch(key) {
+function appLaunch(app) {
   var xhr = new XMLHttpRequest();
-  xhr.open("POST", "{{tvurl}}/launch/" + key, true);
+  xhr.open("POST", "/launcher/" + app, true);
   xhr.send();
 }
+
 </script>
 
 </body>
-
-
 </html>
