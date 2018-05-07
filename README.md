@@ -1,6 +1,8 @@
 # roku-virtual-remote
 
-tested with Python 3.6 only
+Control your Roku device with your computer and keyboard.
+
+_tested with Python 3.6 and Firefox 59.0.2 only_
 
 ## Install
 Enable External Control on your Roku device before installing
