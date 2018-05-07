@@ -6,6 +6,7 @@ _tested with Python 3.6 and Firefox 59.0.2 only_
 
 ## Install
 Enable External Control on your Roku device before installing
+
 Settings -> System -> Advanced system settings -> Extrenal Control -> Network Access -> Default or Permissive
 
 Clone the repository
