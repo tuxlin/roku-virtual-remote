@@ -38,14 +38,12 @@ def index():
 @app.route("/launch", methods=['POST'])
 def launcher():
     appid = request.form['appid']
-    print("launching app id: " + appid)
     resp = requests.post(tv + "/launch/" + appid)
     return redirect(url_for("controller"))
 
 @app.route("/controller")
 def controller():
     favorites = get_favs()
-    print(favorites)
     return render_template("controller.html", tvurl=tv, favorites=favorites)
 
 
