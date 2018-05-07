@@ -9,38 +9,36 @@ Enable External Control on your Roku device before installing
 Settings -> System -> Advanced system settings -> Extrenal Control -> Network Access -> Default or Permissive
 
 Clone the repository
-```
-git clone https://github.com/tuxlin/roku-virtual-remote.git
-cd roku-virtual-remote
-```
+
+`git clone https://github.com/tuxlin/roku-virtual-remote.git`
+
+`cd roku-virtual-remote`
 
 Create a Python3 virtualenv
-```
-python3 -m venv python
-```
+
+`python3 -m venv python`
 
 Activate the virtual environment
-```
-source python/bin/activate
-```
+
+`source python/bin/activate`
 
 Install the required pip modules
-```
-pip install -r requirements.txt
-```
+
+`pip install -r requirements.txt`
+
 
 Set your Roku device's IP address in roku-remote.py
 
-`tv = "http://[YOUR TV IP HERE]:8060"`
+```tv = "http://[YOUR TV IP HERE]:8060"```
 
 Start the virtual remote
-```
-python roku-remote.py
-```
+
+`python roku-remote.py`
+
 
 Launch your browser(Firefox 59.0.2+ for keyboard support)
 
-`http://localhost:5000`
+```http://localhost:5000```
 
 ## Configure favorites
 
@@ -58,7 +56,7 @@ Partially named apps will return all close matching named apps
 
 ## Keyboard support (Firefox 59.0.2+ only)
 
-* When on a screen with a text entry window, typing on your keyboard will enter alphanumeric characters(a-z, A-Z, 0-9)
+* Text entry windows, typing on your keyboard will enter alphanumeric characters(a-z, A-Z, 0-9)
 * Backspace will enter backspace on text entry windows
 * Arrow keys will move the selector around
 * Enter will select the highlighted options
