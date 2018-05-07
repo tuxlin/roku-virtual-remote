@@ -33,7 +33,7 @@ def get_favs():
 def index():
     app_dict = get_apps()
     apps = [{"name": appl, "id": app_dict.get(appl)} for appl in app_dict.keys()]
-    return render_template('index.html', apps=apps)
+    return render_template('index.html', tvurl=tv, apps=apps)
 
 @app.route("/launch", methods=['POST'])
 def launcher():
